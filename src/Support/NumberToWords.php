@@ -81,12 +81,12 @@ class NumberToWords
 
     /**
      * Money: 1250.75 EGP => "ألف ومائتان وخمسون جنيهاً مصرياً وخمسة وسبعون قرشاً".
-     * Currencies: EGP, SAR, AED, USD, KWD (3 decimals not supported, uses 2).
+     * Currencies: EGP, SAR, AED, USD, KWD (KWD uses 3 decimals, fils).
      */
     public function money(float|int|string $amount, string $currency = 'EGP'): string
     {
         $cur = Currencies::get($currency);
-        $amount = number_format((float) $amount, 2, '.', '');
+        $amount = number_format((float) $amount, $cur['decimals'] ?? 2, '.', '');
         [$whole, $fraction] = explode('.', $amount);
         $whole = (int) $whole;
         $fraction = (int) $fraction;

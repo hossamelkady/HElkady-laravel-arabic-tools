@@ -24,7 +24,7 @@ Arabic::numberToWords(1250);
 Arabic::money(1250.75);
 // ألف ومائتان وخمسون جنيهاً مصرياً وخمسة وسبعون قرشاً
 
-Arabic::money(25, 'SAR');   // EGP, SAR, AED, USD
+Arabic::money(25, 'SAR');   // EGP, SAR, AED, USD, KWD
 
 Arabic::digits(2026);            // ٢٠٢٦
 Arabic::westernDigits('٢٠٢٦');   // 2026

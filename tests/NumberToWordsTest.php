@@ -57,4 +57,11 @@ class NumberToWordsTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         Arabic::money(5, 'XXX');
     }
+
+    public function test_money_kwd_uses_three_decimals(): void
+    {
+        $this->assertSame('دينار كويتي', Arabic::money(1, 'KWD'));
+        $this->assertSame('ثلاثة دنانير كويتية', Arabic::money(3, 'KWD'));
+        $this->assertSame('دينار كويتي وخمسة فلوس', Arabic::money(1.005, 'KWD'));
+    }
 }
